@@ -11,6 +11,8 @@ Do not consider it production-quality code just yet.
 This library will aloow you to have functions like this:
 
 function factorial($n){
+
     return \LFF7\from_range(1,$n) -> product();
+
 }
 
