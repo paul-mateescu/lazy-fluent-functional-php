@@ -20,4 +20,4 @@ Or, if you have a CSV file and you want to sum all the values in the third colum
 ```php
 $sum = \LFF7\from_csv_file('myfile.csv')->column(2)->sum();
 ```
-
+(It will work with a 1TB file, because it's all lazy :) )
