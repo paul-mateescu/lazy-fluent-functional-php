@@ -16,9 +16,12 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function() use($generator, $noOfRowsToDrop){
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     if($noOfRowsToDrop-- > 0) continue;
-                    if(yield $key => $value) return;
+                    if(yield $key => $value) {
+                        $gen->send(true); // halts the inner generator also;
+                        return;
+                    }
                 }
             };
         return $this;
@@ -29,12 +32,15 @@ class LazyFluentFunctional {
         $this->generator = 
             function() use($generator, $predicate){
                 $toDrop = true;
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     if($toDrop){
                         $toDrop = $predicate($value, $key);
                         if($toDrop) continue;
                     }
-                    if(yield $key => $value) return;
+                    if(yield $key => $value){
+                        $gen->send(true);
+                        return;
+                    } 
                 }
             };
         return $this;
@@ -47,12 +53,15 @@ class LazyFluentFunctional {
         $this->generator = 
             function() use($generator, $predicate){
                 $toDrop = true;
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     if($toDrop){
                         $toDrop = ! $predicate($value, $key);
                         if($toDrop) continue;
                     }
-                    if(yield $key => $value) return;
+                    if(yield $key => $value) {
+                        $gen->send(true);
+                        return;
+                    }
                 }
             };
         return $this;
@@ -62,9 +71,12 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $transform){
-                foreach($generator() as $key => $value)
-                    if(yield $key => $transform($value)) return;
-                };
+                foreach(($gen = $generator()) as $key => $value)
+                    if(yield $key => $transform($value)) {
+                        $gen->send(true);
+                        return;
+                    }
+            };
         return $this;
     }
 
@@ -72,11 +84,14 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $noOfRowsToTake){
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     if($noOfRowsToTake-- <= 0) return;
-                    if(yield $key => $value) return;
+                    if(yield $key => $value) {
+                        $gen->send(true);
+                        return;
                     }
-                };
+                }
+            };
         return $this;
     }
 
@@ -84,11 +99,14 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $predicate){
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     if(! $predicate($value, $key)) return;
-                    if(yield $key => $value) return;
+                    if(yield $key => $value) {
+                        $gen->send(true);
+                        return;
                     }
-                };
+                }
+            };
         return $this;
     }
 
@@ -96,9 +114,12 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $predicate){
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     if($predicate($value, $key)) return;
-                    if(yield $key => $value) return;
+                    if(yield $key => $value){
+                        $gen->send(true);
+                        return;
+                    } 
                     }
                 };
         return $this;
@@ -108,9 +129,12 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $predicate){
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     if($predicate($value, $key)) 
-                        if(yield $key => $value) return;
+                        if(yield $key => $value){
+                            $gen->send(true);
+                            return;
+                        } 
                 }
             };
         return $this;
@@ -120,9 +144,12 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $predicate){
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     if(!$predicate($value, $key)) 
-                        if(yield $key => $value) return;
+                        if(yield $key => $value){
+                            $gen->send(true);
+                            return;
+                        } 
                 }
             };
         return $this;
@@ -132,8 +159,11 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $column_key){
-                    foreach($generator() as $key => $value)
-                        if(yield $key => $value[$column_key]) return;
+                    foreach(($gen = $generator()) as $key => $value)
+                        if(yield $key => $value[$column_key]){
+                            $gen->send(true);
+                            return;
+                        } 
                     };
         return $this;
     }
@@ -142,14 +172,17 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $column_keys){
-                foreach($generator() as $key => $value){
+                foreach(($gen = $generator()) as $key => $value){
                     $arr = [];
                     foreach($column_keys as $column_key) 
                         // ATENTIE: 
                         // era:
                         // $arr []= $value[$column_key];
                         $arr [$column_key]= $value[$column_key];
-                    if(yield $key => $arr) return;
+                    if(yield $key => $arr){
+                        $gen->send(true);
+                        return;
+                    } 
                     }
                 };
         return $this;
@@ -159,9 +192,12 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $column_key){
-                    foreach($generator() as $key => $value){
+                    foreach(($gen = $generator()) as $key => $value){
                         unset($value[$column_key]);
-                        if(yield $key => $value) return;
+                        if(yield $key => $value){
+                            $gen->send(true);
+                            return;
+                        } 
                         }
                     };
         return $this;
@@ -172,8 +208,11 @@ class LazyFluentFunctional {
         $this->generator = 
                 function() use ($generator){
                     $i = 0;
-                    foreach($generator() as $key => $value)
-                        if(yield $i++  => $value) return;
+                    foreach(($gen = $generator()) as $key => $value)
+                        if(yield $i++  => $value){
+                            $gen->send(true);
+                            return;
+                        } 
                     }
                 ;
         return $this;
@@ -183,8 +222,11 @@ class LazyFluentFunctional {
         $generator = $this->generator;
         $this->generator = 
             function() use($generator, $column_key){
-                    foreach($generator() as $value)
-                        if(yield $value[$column_key] => $value) return;
+                    foreach(($gen = $generator()) as $value)
+                        if(yield $value[$column_key] => $value){
+                            $gen->send(true);
+                            return;
+                        } 
                     };
         return $this;
     }
@@ -196,7 +238,7 @@ class LazyFluentFunctional {
         $this->generator = 
             function()use($generator){
                     $arr = [];
-                    foreach($generator() as $key => $value)
+                    foreach(($gen = $generator()) as $key => $value)
                         $arr[$key] = $value;
                     ksort($arr);
                     foreach($arr as $key => $elem)
@@ -212,7 +254,7 @@ class LazyFluentFunctional {
         $this->generator = 
             function()use($generator){
                     $arr = [];
-                    foreach($generator() as $key => $value)
+                    foreach(($gen = $generator()) as $key => $value)
                         $arr[$key] = $value;
                     krsort($arr);
                     foreach($arr as $key => $elem)
@@ -228,7 +270,7 @@ class LazyFluentFunctional {
         $this->generator = 
             function()use($generator, $column_key){
                     $arr = [];
-                    foreach($generator() as $key => $value)
+                    foreach(($gen = $generator()) as $key => $value)
                         $arr[$value[$column_key]] = [$key, $value];
                     krsort($arr);
                     foreach($arr as $elem)
@@ -244,7 +286,7 @@ class LazyFluentFunctional {
         $this->generator = 
              function() use ($generator, $column_key){
                     $arr = [];
-                    foreach($generator() as $value)
+                    foreach(($gen = $generator()) as $value)
                         if(array_key_exists($value[$column_key], $arr))
                             $arr[$value[$column_key]][] = $value;
                         else
@@ -262,7 +304,7 @@ class LazyFluentFunctional {
         $this->generator = 
             function()use($generator) {
                     $arr = [];
-                    foreach($generator() as $key => $value)
+                    foreach(($gen = $generator()) as $key => $value)
                         if(array_key_exists($key, $arr))
                             $arr[$key][] = $value;
                         else
