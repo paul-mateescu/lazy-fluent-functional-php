@@ -10,9 +10,14 @@ Do not consider it production-quality code just yet.
 
 This library will aloow you to have functions like this:
 
+```php
 function factorial($n){
-
     return \LFF7\from_range(1,$n) -> product();
-
 }
+```
+Or, if you have a CSV file and you want to sum all the values in the third column, you can whip a one-liner:
+
+```php
+$sum = \LFF7\from_csv_file('myfile.csv')->column(2)->sum();
+```
 
