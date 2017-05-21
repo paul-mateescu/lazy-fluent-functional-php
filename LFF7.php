@@ -190,6 +190,8 @@ class LazyFluentFunctional {
     }
 
     function sort_asc_on_key(){
+        //THIS IS NOT LAZY!!!! 
+        //It requires all rows to fit in memory
         $generator = $this->generator;
         $this->generator = 
             function()use($generator){
@@ -204,6 +206,8 @@ class LazyFluentFunctional {
     }
 
     function sort_desc_on_key(){
+        //THIS IS NOT LAZY!!!! 
+        //It requires all rows to fit in memory
         $generator = $this->generator;
         $this->generator = 
             function()use($generator){
@@ -218,6 +222,8 @@ class LazyFluentFunctional {
     }
 
     function sort_desc_on_column($column_key){
+        //THIS IS NOT LAZY!!!! 
+        //It requires all rows to fit in memory
         $generator = $this->generator;
         $this->generator = 
             function()use($generator, $column_key){
@@ -232,6 +238,8 @@ class LazyFluentFunctional {
     }
 
     function group_on_column($column_key){
+        //THIS IS NOT LAZY!!!! 
+        //It requires all rows to fit in memory
         $generator = $this->generator;
         $this->generator = 
              function() use ($generator, $column_key){
@@ -248,6 +256,8 @@ class LazyFluentFunctional {
     }
 
     function group_on_key(){
+        //THIS IS NOT LAZY!!!! 
+        //It requires all rows to fit in memory
         $generator = $this->generator;
         $this->generator = 
             function()use($generator) {
@@ -278,10 +288,12 @@ class LazyFluentFunctional {
     }
 
 	function to_array(){
+        //THIS IS NOT LAZY!!!! 
+        //It requires all rows to fit in memory
         return iterator_to_array(($this->generator)());
     }
 
-    function reduce($reduce_function){
+    function reduce(callable $reduce_function){
         $first = true;
         foreach(($this->generator)() as $value)
             if($first){
