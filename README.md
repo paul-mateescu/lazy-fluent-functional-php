@@ -8,7 +8,7 @@ Please bear with me, I will update this, create test files etc as fast and as of
 
 Do not consider it production-quality code just yet. 
 
-This library will aloow you to have functions like this:
+This library will allow you to have functions like this:
 
 ```php
 function factorial($n){
