@@ -15,6 +15,12 @@ function factorial($n){
     return \LFF7\from_range(1,$n) -> product();
 }
 ```
+If you want to sum the first million natural numbers:
+
+```php
+$sum = \LFF7\naturals()->take(1000000)->sum();
+```
+
 Or, if you have a CSV file and you want to sum all the values in the third column, you can whip a one-liner:
 
 ```php
