@@ -175,16 +175,13 @@ class LazyFluentFunctional {
                 foreach(($gen = $generator()) as $key => $value){
                     $arr = [];
                     foreach($column_keys as $column_key) 
-                        // ATENTIE: 
-                        // era:
-                        // $arr []= $value[$column_key];
                         $arr [$column_key]= $value[$column_key];
                     if(yield $key => $arr){
                         $gen->send(true);
                         return;
                     } 
-                    }
-                };
+                }
+            };
         return $this;
     }
 
