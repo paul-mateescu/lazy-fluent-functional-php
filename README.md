@@ -21,7 +21,7 @@ function factorial($n){
 __Finding the sum of the first one million natural numbers:__
 
 ```php
-$sum = 
+ $sum = 
     \LFF7\naturals()
         ->take(1000000)
         ->sum();
@@ -70,4 +70,4 @@ __All natural numbers:__
 
 (returns a generator lazily yielding  all natural numbers)
 
-...the rest is coming soon
+...the rest is coming soon !
