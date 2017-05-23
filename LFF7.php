@@ -362,6 +362,18 @@ class LazyFluentFunctional {
         return $result;
     }
 
+    function odds(){
+        return $this->filter(
+            function($n){return $n % 2 == 1;}
+        );
+    }
+
+    function evens(){
+        return $this->filter(
+            function($n){return $n % 2 == 0;}
+        );
+    }
+
     static function with($generator){
         return new self($generator);
     }
