@@ -40,7 +40,8 @@ __Finding the product of the even numbers of an array:__
 
 ```php
 $product = 
-    \LFF7\from_array([1, 5, 7, 9, 0, 2, 3, 6, 5, 2, 6])
+
+\LFF7\from_array([1, 5, 7, 9, 0, 2, 3, 6, 5, 2, 6])
         ->evens()
         ->product();
 ```
@@ -59,6 +60,7 @@ Let's say we have a CSV file with the following structure:
 |George|2017-01-04|254.00|
 |Linda|2017-01-04|810.99|
 |...|...|...|
+
 We would like to obtain the sum of the sales on each person, ordered by name. 
  
 
