@@ -21,7 +21,7 @@ function factorial($n){
 __Finding the sum of the first one million natural numbers:__
 
 ```php
- $sum = 
+$sum = 
     \LFF7\naturals()
         ->take(1000000)
         ->sum();
@@ -45,6 +45,41 @@ $product =
         ->product();
 ```
 (It will stop after finding a zero and return it as the final value of the computation).
+
+__A complex computation from a CSV file:__
+
+Let's say we have a CSV file with the following structure:
+
+|Name| Date|Sales|
+|----|-----|-----:|
+|Danny|2017-01-03|100.25|
+|George|2017-01-03|90.00|
+|Linda|2017-01-03|190.00|
+|Danny|2017-01-04|200.00|
+|George|2017-01-04|254.00|
+|Linda|2017-01-04|810.99|
+|...|...|...|
+We would like to obtain the sum of the sales on each person, ordered by name. 
+ 
+
+```php
+$arr = 
+    \LFF7\from_csv_file('sales.csv')
+        ->columns(0, 2)
+        ->reindex()
+        ->group_on_column(0)
+        ->sort_asc_on_key()
+        ->map(
+            function($v){
+                return 
+                \LFF\from_array($v)
+                    ->column(1)
+                    ->sum();
+            }
+        )
+        ->to_array();
+
+```
 
 ## Installation
 
@@ -70,4 +105,16 @@ __All natural numbers:__
 
 (returns a generator lazily yielding  all natural numbers)
 
-...the rest is coming soon !
+__From a file:__
+
+`$gen = \LFF7\from_file('myfile.txt');`
+
+(returns a generator that lazily yields one row at a time, as string)
+
+__From a CSV file:__
+
+`$gen = \LFF7\from_csv_file('myfile.csv');`
+
+(returns a generator that lazily yields one row at a time, as an array)
+
+...the rest is coming soon
