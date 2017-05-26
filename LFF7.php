@@ -374,6 +374,19 @@ class LazyFluentFunctional {
         );
     }
 
+    function vowels(){
+        return $this->filter(
+            function($chr){return stripos("aeiou", strtolower($chr)) !== FALSE;}
+        );
+    }
+
+    function consonants(){
+        return $this->filter(
+            function($chr){return stripos("aeiou", strtolower($chr)) === FALSE;}
+        );
+    }
+
+
     static function with($generator){
         return new self($generator);
     }
@@ -435,3 +448,13 @@ function from_csv_file(string $fileName){
             }
         });
 }
+
+function from_string(string $str){
+    return LazyFluentFunctional::with(        
+        function()use($str){
+            $len = strlen($str);
+            for($idx = 0; $idx < $len; $idx++)
+                if(yield $idx => $str[$idx]) return;
+        });
+}
+
