@@ -384,6 +384,8 @@ class LazyFluentFunctional {
         return $this->filter(
             function($chr){return stripos("aeiou", strtolower($chr)) === FALSE;}
         );
+
+    
     }
 
 
@@ -458,3 +460,6 @@ function from_string(string $str){
         });
 }
 
+function from_generator($generator){
+    return LazyFluentFunctional::with($generator);
+}
