@@ -205,15 +205,15 @@ __From a CSV file:__
 
 # [Reference](#contents)
 
-#### <a name="drop"></a> drop(int $noOf<a name=""></a>RowsToDrop)
+#### <a name="drop"></a> [drop(int $noOfRowsToDrop)](#contents)
 
 Returns a new generator that drops the first `$noOfRowsToDrop` rows from the current one. *Lazy/Fluent*
 
-#### <a name="drop-until"></a>drop_until(callable $predicate)
+#### <a name="drop-until"></a>[drop_until(callable $predicate)](#contents)
 
 Returns a new generator that drops rows from the current one until `$predicate` returns `true`. *Lazy/Fluent*
 
-#### <a name="map"></a>map(callable $transform)
+#### <a name="map"></a> [map(callable $transform)](#contents)
 #### <a name="take"></a>take(int $noOfRowsToTake)
 #### <a name="take-while"></a>take_while(callable $predicate)
 #### <a name="filter"></a>filter(callable $predicate)
