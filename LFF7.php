@@ -406,6 +406,17 @@ class LazyFluentFunctional {
         );
     }
 	
+    function in_interval($a, $b){
+        return $this->filter(
+            function($x)use($a, $b){return ($x >= $a) && ($x <= $b);}
+        );
+    }
+
+    function outside_interval($a, $b){
+        return $this->filter(
+            function($x)use($a, $b){return ($x < $a) || ($x > $b);}
+        );
+    }
 
 
     function vowels(){
