@@ -6,9 +6,69 @@ I have one for PHP 5 in the works as well :)
 
 Please bear with me, I will update this, create test files etc as fast and as often I can.
 
+# Contents
+[**Examples**](#examples)
+
+[**Installation**](#installation)
+
+[**Reference**](#reference)
+
+[drop\(int \$noOfRowsToDrop\)](#drop)
+
+[drop_until(callable $predicate)](#)
+
+[map(callable $transform)](#)
+
+[take(int $noOfRowsToTake)](#)
+
+[take_while(callable $predicate)](#)
+
+[filter(callable $predicate)](#)
+
+[exclude(callable $predicate)](#)
+
+[column($column_key)](#)
+
+[columns(...$column_keys)](#)
+
+[delete_column($column_key)](#)
+
+[reindex()](#)
+
+[key_from_column($column_key)](#)
+
+[sort_asc_on_key()](#)
+
+[sort_desc_on_key()](#)
+
+[sort_desc_on_column($column_key)](#)
+
+[group_on_column($column_key)](#)
+
+[group_on_key()](#)
+
+[all(callable $predicate)](#)
+
+[any(callable $predicate)](#)
+
+[to_array()](#)
+
+[reduce(callable $reduce_function)](#)
+
+[sum()](#)
+
+[product()](#)
+
+[odds()](#)
+
+[evens()](#)
+
+[vowels()](#)
+
+[consonants()](#)
 
 
-## Examples
+# [Examples](#contents)
 
 __Factorial function:__
 
@@ -83,7 +143,7 @@ $arr =
 
 ```
 
-## Installation
+## [Installation](#contents)
 
 Just require `LFF7.php`.
 
@@ -119,4 +179,61 @@ __From a CSV file:__
 
 (returns a generator that lazily yields one row at a time, as an array)
 
-...the rest is coming soon
+# [Reference](#contents)
+
+#### <a name="drop"></a> drop(int $noOfRowsToDrop)
+
+dszdfdfzdsfzxcvzxcdfvzfgvZSDFGZSDF
+
+#### drop_until(callable $predicate)
+
+#### map(callable $transform)
+
+#### take(int $noOfRowsToTake)
+
+#### take_while(callable $predicate)
+
+#### filter(callable $predicate)
+
+#### exclude(callable $predicate)
+
+#### column($column_key)
+
+#### columns(...$column_keys)
+
+#### delete_column($column_key)
+
+#### reindex()
+
+#### key_from_column($column_key)
+
+#### sort_asc_on_key()
+
+#### sort_desc_on_key()
+
+#### sort_desc_on_column($column_key)
+
+#### group_on_column($column_key)
+
+#### group_on_key()
+
+#### all(callable $predicate)
+
+#### any(callable $predicate)
+
+#### to_array()
+
+#### reduce(callable $reduce_function)
+
+#### sum()
+
+#### product()
+
+#### odds()
+
+#### evens()
+
+#### vowels()
+
+#### consonants()
+
