@@ -373,6 +373,40 @@ class LazyFluentFunctional {
             function($n){return $n % 2 == 0;}
         );
     }
+	
+    function less_than($v){
+        return $this->filter(
+            function($x)use($v){return $x < $v;}
+        );
+    }
+
+    function less_equal($v){
+        return $this->filter(
+            function($x)use($v){return $x <= $v;}
+        );
+    }
+
+	
+    function greater_than($v){
+        return $this->filter(
+            function($x)use($v){return $x > $v;}
+        );
+    }
+
+    function greater_equal($v){
+        return $this->filter(
+            function($x)use($v){return $x >= $v;}
+        );
+    }
+
+	
+    function equal_to($v){
+        return $this->filter(
+            function($x)use($v){return $x == $v;}
+        );
+    }
+	
+
 
     function vowels(){
         return $this->filter(
