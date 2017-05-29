@@ -13,7 +13,7 @@ Please bear with me, I will update this, create test files etc as fast and as of
 
 [**Reference**](#reference)
 
-[drop\(int \$noOfRowsToDrop\)](#drop)
+[drop(int $noOfRowsToDrop)](#drop)
 
 [drop_until(callable $predicate)](#)
 
@@ -181,59 +181,31 @@ __From a CSV file:__
 
 # [Reference](#contents)
 
-#### <a name="drop"></a> drop(int $noOfRowsToDrop)
-
-dszdfdfzdsfzxcvzxcdfvzfgvZSDFGZSDF
-
-#### drop_until(callable $predicate)
-
-#### map(callable $transform)
-
-#### take(int $noOfRowsToTake)
-
-#### take_while(callable $predicate)
-
-#### filter(callable $predicate)
-
-#### exclude(callable $predicate)
-
-#### column($column_key)
-
-#### columns(...$column_keys)
-
-#### delete_column($column_key)
-
-#### reindex()
-
-#### key_from_column($column_key)
-
-#### sort_asc_on_key()
-
-#### sort_desc_on_key()
-
-#### sort_desc_on_column($column_key)
-
-#### group_on_column($column_key)
-
-#### group_on_key()
-
-#### all(callable $predicate)
-
-#### any(callable $predicate)
-
-#### to_array()
-
-#### reduce(callable $reduce_function)
-
-#### sum()
-
-#### product()
-
-#### odds()
-
-#### evens()
-
-#### vowels()
-
-#### consonants()
+#### <a name="drop"></a> drop(int $noOf<a name=""></a>RowsToDrop)
+#### <a name="drop-until"></a>drop_until(callable $predicate)
+#### <a name="map"></a>map(callable $transform)
+#### <a name="take"></a>take(int $noOfRowsToTake)
+#### <a name="take-while"></a>take_while(callable $predicate)
+#### <a name="filter"></a>filter(callable $predicate)
+#### <a name="exclude"></a>exclude(callable $predicate)
+#### <a name="column"></a>column($column_key)
+#### <a name="columns"></a>columns(...$column_keys)
+#### <a name="delete-column"></a>delete_column($column_key)
+#### <a name="reindex"></a>reindex()
+#### <a name="key-from-column"></a>key_from_column($column_key)
+#### <a name="sort-asc-on-key"></a>sort_asc_on_key()
+#### <a name="sort-desc-on-key"></a>sort_desc_on_key()
+#### <a name="sort-desc-on-column"></a>sort_desc_on_column($column_key)
+#### <a name="group-on-column"></a>group_on_column($column_key)
+#### <a name="group-on-key"></a>group_on_key()
+#### <a name="all"></a>all(callable $predicate)
+#### <a name="any"></a>any(callable $predicate)
+#### <a name="to-array"></a>to_array()
+#### <a name="reduce"></a>reduce(callable $reduce_function)
+#### <a name="sum"></a>sum()
+#### <a name="product"></a>product()
+#### <a name="odds"></a>odds()
+#### <a name="evens"></a>evens()
+#### <a name="vowels"></a>vowels()
+#### <a name="consonants"></a>consonants()
 
