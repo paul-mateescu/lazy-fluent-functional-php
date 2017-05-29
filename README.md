@@ -11,6 +11,8 @@ Please bear with me, I will update this, create test files etc as fast and as of
 
 [**Installation**](#installation)
 
+[**Usage**](#usage)
+
 [**Reference**](#reference)
 
 [drop(int $noOfRowsToDrop)](#drop)
@@ -147,7 +149,7 @@ $arr =
 
 Just require `LFF7.php`.
 
-## Usage
+## [Usage](#contents)
 
 ### Creating generators
 
@@ -182,7 +184,13 @@ __From a CSV file:__
 # [Reference](#contents)
 
 #### <a name="drop"></a> drop(int $noOf<a name=""></a>RowsToDrop)
+
+Returns a new generator that drops `$noOfRowsToDrop` rows from the current one. *Lazy/Fluent*
+
 #### <a name="drop-until"></a>drop_until(callable $predicate)
+
+Returns a new generator that drops rows from the current one until `$predicate` returns `true`. *Lazy/Fluent*
+
 #### <a name="map"></a>map(callable $transform)
 #### <a name="take"></a>take(int $noOfRowsToTake)
 #### <a name="take-while"></a>take_while(callable $predicate)
