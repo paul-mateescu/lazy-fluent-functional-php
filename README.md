@@ -151,7 +151,29 @@ Just require `LFF7.php`.
 
 ## [Usage](#contents)
 
-### Creating generators
+1. Obtain a generator wrapped in an object using the generator creation functions `from_array`, `from_file` a.s.o. Example:
+
+```php
+$generator = from_array([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+```
+
+2. Fluently chain methods that express your desired computation. For example:
+
+```php
+$computation = $generator->odds()->less_than(6);
+```
+
+3. Perform the actual computation (note the function invocation):
+
+```php
+foreach($computation() as $value){
+    echo $value, " ";
+}
+```
+
+
+
+### Functions that return generator objects
 
 __From an array__:
 
@@ -185,7 +207,7 @@ __From a CSV file:__
 
 #### <a name="drop"></a> drop(int $noOf<a name=""></a>RowsToDrop)
 
-Returns a new generator that drops `$noOfRowsToDrop` rows from the current one. *Lazy/Fluent*
+Returns a new generator that drops the first `$noOfRowsToDrop` rows from the current one. *Lazy/Fluent*
 
 #### <a name="drop-until"></a>drop_until(callable $predicate)
 
