@@ -18,53 +18,29 @@ Please bear with me, I will update this, create test files etc as fast and as of
 + [drop(int $noOfRowsToDrop)](#drop)
 + [drop_until(callable $predicate)](#drop-until)
 + [map(callable $transform)](#map)
-
 + [take(int $noOfRowsToTake)](#take)
-
 + [take_while(callable $predicate)](#take-while)
-
 + [filter(callable $predicate)](#filter)
-
 + [exclude(callable $predicate)](#exclude)
-
 + [column($column_key)](#column)
-
 + [columns(...$column_keys)](#columns)
-
 + [delete_column($column_key)](#delete-column)
-
 + [reindex()](#reindex)
-
 + [key_from_column($column_key)](#key-from-column)
-
 + [sort_asc_on_key()](#)
-
 + [sort_desc_on_key()](#)
-
 + [sort_desc_on_column($column_key)](#)
-
 + [group_on_column($column_key)](#)
-
 + [group_on_key()](#)
-
 + [all(callable $predicate)](#)
-
 + [any(callable $predicate)](#)
-
 + [to_array()](#)
-
 + [reduce(callable $reduce_function)](#)
-
 + [sum()](#)
-
 + [product()](#)
-
 + [odds()](#)
-
 + [evens()](#)
-
 + [vowels()](#)
-
 + [consonants()](#)
 
 
