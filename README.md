@@ -16,9 +16,7 @@ Please bear with me, I will update this, create test files etc as fast and as of
 <a name="contents-reference"></a>[**Reference**](#reference)
 
 + [drop(int $noOfRowsToDrop)](#drop)
-
 + [drop_until(callable $predicate)](#drop-until)
-
 + [map(callable $transform)](#map)
 
 + [take(int $noOfRowsToTake)](#take)
