@@ -196,6 +196,11 @@ Returns a new generator that applies the `$transform` callable to items yielded 
 **Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->map(function($x){return $x++;})->to_array()` produces the array `[2, 3, 4, 5, 6]`.
 
 #### <a name="take"></a>[take(int $noOfRowsToTake)](#contents-reference)
+
+Returns a new generator that will yield at most `$noOfRowsToTake` from the current generator. *Lazy/Fluent*
+
+**Example**: `\LFF7\naturals()->take(100)` will yield the first 100 natural numbers, i.e 0, 1, 2, ..., 99.
+
 #### <a name="take-while"></a>[take_while(callable $predicate)](#contents-reference)
 #### <a name="filter"></a>[filter(callable $predicate)](#contents-reference)
 #### <a name="exclude"></a>[exclude(callable $predicate)](#contents-reference)
