@@ -19,55 +19,55 @@ Please bear with me, I will update this, create test files etc as fast and as of
 
 + [drop_until(callable $predicate)](#drop-until)
 
-[map(callable $transform)](#map)
++ [map(callable $transform)](#map)
 
-[take(int $noOfRowsToTake)](#take)
++ [take(int $noOfRowsToTake)](#take)
 
-[take_while(callable $predicate)](#take-while)
++ [take_while(callable $predicate)](#take-while)
 
-[filter(callable $predicate)](#filter)
++ [filter(callable $predicate)](#filter)
 
-[exclude(callable $predicate)](#exclude)
++ [exclude(callable $predicate)](#exclude)
 
-[column($column_key)](#column)
++ [column($column_key)](#column)
 
-[columns(...$column_keys)](#columns)
++ [columns(...$column_keys)](#columns)
 
-[delete_column($column_key)](#delete-column)
++ [delete_column($column_key)](#delete-column)
 
-[reindex()](#reindex)
++ [reindex()](#reindex)
 
-[key_from_column($column_key)](#key-from-column)
++ [key_from_column($column_key)](#key-from-column)
 
-[sort_asc_on_key()](#)
++ [sort_asc_on_key()](#)
 
-[sort_desc_on_key()](#)
++ [sort_desc_on_key()](#)
 
-[sort_desc_on_column($column_key)](#)
++ [sort_desc_on_column($column_key)](#)
 
-[group_on_column($column_key)](#)
++ [group_on_column($column_key)](#)
 
-[group_on_key()](#)
++ [group_on_key()](#)
 
-[all(callable $predicate)](#)
++ [all(callable $predicate)](#)
 
-[any(callable $predicate)](#)
++ [any(callable $predicate)](#)
 
-[to_array()](#)
++ [to_array()](#)
 
-[reduce(callable $reduce_function)](#)
++ [reduce(callable $reduce_function)](#)
 
-[sum()](#)
++ [sum()](#)
 
-[product()](#)
++ [product()](#)
 
-[odds()](#)
++ [odds()](#)
 
-[evens()](#)
++ [evens()](#)
 
-[vowels()](#)
++ [vowels()](#)
 
-[consonants()](#)
++ [consonants()](#)
 
 
 # [Examples](#contents)
