@@ -181,7 +181,7 @@ __From a CSV file:__
 
 #### <a name="drop"></a> [drop(int $noOfRowsToDrop)](#contents)
 
-Returns a new generator that drops the first `$noOfRowsToDrop` rows from the current one. *Lazy/Fluent*
+Returns a new generator that drops the first `$noOfRowsToDrop` rows from the current generator. *Lazy/Fluent*
 
 **Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->drop(2)->to_array()` produces the array `[3, 4, 5]`.
 
@@ -190,6 +190,11 @@ Returns a new generator that drops the first `$noOfRowsToDrop` rows from the cur
 Returns a new generator that drops rows from the current one until `$predicate` returns `true`. *Lazy/Fluent*
 
 #### <a name="map"></a> [map(callable $transform)](#contents-reference)
+
+Returns a new generator that applies the `$transform` callable to items yielded from the current generator. *Lazy/Fluent*
+
+**Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->map(function($x){return $x++;})->to_array()` produces the array `[2, 3, 4, 5, 6]`.
+
 #### <a name="take"></a>[take(int $noOfRowsToTake)](#contents-reference)
 #### <a name="take-while"></a>[take_while(callable $predicate)](#contents-reference)
 #### <a name="filter"></a>[filter(callable $predicate)](#contents-reference)
