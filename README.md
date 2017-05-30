@@ -183,6 +183,8 @@ __From a CSV file:__
 
 Returns a new generator that drops the first `$noOfRowsToDrop` rows from the current one. *Lazy/Fluent*
 
+Example: `\LFF\from_array([1, 2, 3, 4, 5])->drop(2)->to_array()` produces the array [3, 4, 5].
+
 #### <a name="drop-until"></a>[drop_until(callable $predicate)](#contents)
 
 Returns a new generator that drops rows from the current one until `$predicate` returns `true`. *Lazy/Fluent*
