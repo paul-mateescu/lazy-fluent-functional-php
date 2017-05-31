@@ -185,18 +185,19 @@ class LazyFluentFunctional {
         return $this;
     }
 
-    function delete_column($column_key){
+    function delete_columns(...$column_keys){
         $generator = $this->generator;
         $this->generator = 
             function ()use($generator, $column_key){
                     foreach(($gen = $generator()) as $key => $value){
-                        unset($value[$column_key]);
+			foreach($column_keys as $column_key)
+                        	unset($value[$column_key]);
                         if(yield $key => $value){
                             $gen->send(true);
                             return;
                         } 
-                        }
-                    };
+                    }
+             };
         return $this;
     }
 
