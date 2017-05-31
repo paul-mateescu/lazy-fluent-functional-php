@@ -205,7 +205,7 @@ Returns a new generator that will yield at most `$noOfRowsToTake` from the curre
 
 Returns a new generator that yields rows from the current one while `$predicate` returns `true`. *Lazy/Fluent*
 
-**Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->drop_until(function($n){return $n < 3;})->to_array()` produces the array `[1, 2]`.
+**Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->take_while(function($n){return $n < 3;})->to_array()` produces the array `[1, 2]`.
 
 #### <a name="filter"></a>[filter(callable $predicate)](#contents-reference)
 
