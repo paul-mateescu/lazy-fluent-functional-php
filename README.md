@@ -239,9 +239,9 @@ Key information is preserved.
 
 #### <a name="delete-columns"></a>[delete_columns(...$column_keys)](#contents-reference)
 
-Returns a new generator tharemove the values having the `$column_keys` elements from what the current generator yields, considering that every item yielded is an array. *Lazy/Fluent*
+Returns a new generator that removes the values having the `$column_keys` elements from what the current generator yields, considering that every item yielded is an array. *Lazy/Fluent*
 
-Key information for the elements that are left in the array is preserved.
+For the elements that are left in the array, key information is preserved.
 
 #### <a name="reindex"></a>[reindex()](#contents-reference)
 #### <a name="key-from-column"></a>[key_from_column($column_key)](#contents-reference)
