@@ -177,8 +177,6 @@ __From a CSV file:__
 
 # [Reference](#contents)
 
-
-
 #### <a name="drop"></a> [drop(int $noOfRowsToDrop)](#contents)
 
 Returns a new generator that drops the first `$noOfRowsToDrop` rows from the current generator. *Lazy/Fluent*
@@ -233,7 +231,6 @@ Please note that, since we are interested in just a column, this method does NOT
 
 #### <a name="columns"></a>[columns(...$column_keys)](#contents-reference)
 
-
 Returns a new generator that yields only the columns with the keys given in `$column_keys` from what the current generator yields, considering that every item yielded is an array. *Lazy/Fluent*
 
 Key information is preserved.
@@ -241,6 +238,11 @@ Key information is preserved.
 **Example**: `\LFF7\from_array([1, 2, 7], [3, 4, 8], [5, 6, 9]])->columns(1, 2)->to_array()` produces the array `[1=>2, 2=>7], [1=>4, 2=>8], [1=>6, 2=>9]]`.
 
 #### <a name="delete-column"></a>[delete_column($column_key)](#contents-reference)
+
+Returns a new generator that yields only the columns with the keys given in `$column_keys` from what the current generator yields, considering that every item yielded is an array. *Lazy/Fluent*
+
+Key information is preserved.
+
 #### <a name="reindex"></a>[reindex()](#contents-reference)
 #### <a name="key-from-column"></a>[key_from_column($column_key)](#contents-reference)
 #### <a name="sort-asc-on-key"></a>[sort_asc_on_key()](#contents-reference)
