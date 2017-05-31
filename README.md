@@ -145,8 +145,6 @@ foreach($computation() as $value){
 }
 ```
 
-
-
 ### Functions that return generator objects
 
 __From an array__:
@@ -204,8 +202,25 @@ Returns a new generator that will yield at most `$noOfRowsToTake` from the curre
 **Example**: `\LFF7\naturals()->take(100)` will yield the first 100 natural numbers, i.e 0, 1, 2, ..., 99.
 
 #### <a name="take-while"></a>[take_while(callable $predicate)](#contents-reference)
+
+Returns a new generator that yields rows from the current one while `$predicate` returns `true`. *Lazy/Fluent*
+
+**Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->drop_until(function($n){return $n < 3;})->to_array()` produces the array `[1, 2]`.
+
 #### <a name="filter"></a>[filter(callable $predicate)](#contents-reference)
+
+Returns a new generator that yields rows from the current one for which `$predicate` returns `true`. *Lazy/Fluent*
+
+**Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->filter(function($n){return $n % 2 == 0;})->to_array()` produces the array `[2, 4]`.
+
+(Please note that method `evens()` does the same thing.)
+
 #### <a name="exclude"></a>[exclude(callable $predicate)](#contents-reference)
+
+Returns a new generator that yields rows from the current one for which `$predicate` returns `false`. *Lazy/Fluent*
+
+**Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->exclude(function($n){return $n % 2 == 0;})->to_array()` produces the array `[1, 3, 5]`.
+
 #### <a name="column"></a>[column($column_key)](#contents-reference)
 #### <a name="columns"></a>[columns(...$column_keys)](#contents-reference)
 #### <a name="delete-column"></a>[delete_column($column_key)](#contents-reference)
