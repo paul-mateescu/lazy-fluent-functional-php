@@ -24,7 +24,7 @@ Please bear with me, I will update this, create test files etc as fast and as of
 + [exclude(callable $predicate)](#exclude)
 + [column($column_key)](#column)
 + [columns(...$column_keys)](#columns)
-+ [delete_column($column_key)](#delete-column)
++ [delete_columns(...$column_keys)](#delete-columns)
 + [reindex()](#reindex)
 + [key_from_column($column_key)](#key-from-column)
 + [sort_asc_on_key()](#)
@@ -237,11 +237,11 @@ Key information is preserved.
 
 **Example**: `\LFF7\from_array([1, 2, 7], [3, 4, 8], [5, 6, 9]])->columns(1, 2)->to_array()` produces the array `[1=>2, 2=>7], [1=>4, 2=>8], [1=>6, 2=>9]]`.
 
-#### <a name="delete-column"></a>[delete_column($column_key)](#contents-reference)
+#### <a name="delete-columns"></a>[delete_columns(...$column_keys)](#contents-reference)
 
-Returns a new generator that yields only the columns with the keys given in `$column_keys` from what the current generator yields, considering that every item yielded is an array. *Lazy/Fluent*
+Returns a new generator tharemove the values having the `$column_keys` elements from what the current generator yields, considering that every item yielded is an array. *Lazy/Fluent*
 
-Key information is preserved.
+Key information for the elements that are left in the array is preserved.
 
 #### <a name="reindex"></a>[reindex()](#contents-reference)
 #### <a name="key-from-column"></a>[key_from_column($column_key)](#contents-reference)
