@@ -227,9 +227,19 @@ Returns a new generator that yields rows from the current one for which `$predic
 
 Returns a new generator that yields only the column with the `$column_key` key from what the current generator yields, considering that every item yielded is an array. *Lazy/Fluent*
 
+Please note that, since we are interested in just a column, this method does NOT yield an array with one element, it yields the desired column value directly. The key information is lost.
+
 **Example**: `\LFF7\from_array([1, 2], [3, 4], [5, 6]])->column(0)->to_array()` produces the array `[1, 3, 5]`.
 
 #### <a name="columns"></a>[columns(...$column_keys)](#contents-reference)
+
+
+Returns a new generator that yields only the columns with the keys given in `$column_keys` from what the current generator yields, considering that every item yielded is an array. *Lazy/Fluent*
+
+Key information is preserved.
+
+**Example**: `\LFF7\from_array([1, 2, 7], [3, 4, 8], [5, 6, 9]])->columns(1, 2)->to_array()` produces the array `[1=>2, 2=>7], [1=>4, 2=>8], [1=>6, 2=>9]]`.
+
 #### <a name="delete-column"></a>[delete_column($column_key)](#contents-reference)
 #### <a name="reindex"></a>[reindex()](#contents-reference)
 #### <a name="key-from-column"></a>[key_from_column($column_key)](#contents-reference)
