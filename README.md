@@ -189,6 +189,8 @@ Returns a new generator that drops the first `$noOfRowsToDrop` rows from the cur
 
 Returns a new generator that drops rows from the current one until `$predicate` returns `true`. *Lazy/Fluent*
 
+**Example**: `\LFF7\from_array([1, 2, 3, 4, 5])->drop_until(function($n){return $n > 3;})->to_array()` produces the array `[4, 5]`.
+
 #### <a name="map"></a> [map(callable $transform)](#contents-reference)
 
 Returns a new generator that applies the `$transform` callable to items yielded from the current generator. *Lazy/Fluent*
