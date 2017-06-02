@@ -1,14 +1,20 @@
 <?php
 require_once('../LFF7.php');
 
+function ok_message($message){
+    echo  "<div style=\"color:green\"><pre>OK - ", $message, "</pre></div>";
+}
+
+function failed_message($message){
+    echo "<div style=\"color:red\"><pre>FAILED - ", $message, "</pre></div>";
+}
+
 function test($func, $message){
     $result = $func();
-    echo "<pre>";
     if($result === TRUE)
-        echo  "OK - ", $message, "\n";
+        ok_message($message);
     else
-        echo "FAILED - ", $message, "\n";
-    echo "</pre>";
+        failed_message($message);
     return $result === TRUE;
 }
 
@@ -26,3 +32,4 @@ test(
     function(){return \LFF7\naturals()->take(3)->to_array() === [0, 1, 2];},
     'return \LFF7\naturals()->take(3)->to_array() === [0, 1, 2]'
 );
+
