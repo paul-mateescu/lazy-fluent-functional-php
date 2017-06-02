@@ -13,22 +13,16 @@ function test($func, $message){
 }
 
 test(
-    function(){
-        return \LFF7\from_array([1, 2, 3])->to_array() === [1, 2, 3];
-    },
+    function(){return \LFF7\from_array([1, 2, 3])->to_array() === [1, 2, 3];},
     '\LFF7\from_array([1, 2, 3])->to_array() === [1, 2, 3]'
 );
 
 test(
-    function(){
-        return \LFF7\from_array([])->to_array() === [];
-    },
+    function(){return \LFF7\from_array([])->to_array() === [];},
     '\LFF7\from_array([])->to_array() === []'
 );
 
 test(
-    function(){
-        return \LFF7\naturals()->take(3)->to_array() === [0, 1, 2];
-    },
+    function(){return \LFF7\naturals()->take(3)->to_array() === [0, 1, 2];},
     'return \LFF7\naturals()->take(3)->to_array() === [0, 1, 2]'
 );
