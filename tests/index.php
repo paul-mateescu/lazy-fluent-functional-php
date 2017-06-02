@@ -20,16 +20,24 @@ function test($func, $message){
 
 test(
     function(){return \LFF7\from_array([1, 2, 3])->to_array() === [1, 2, 3];},
+
     '\LFF7\from_array([1, 2, 3])->to_array() === [1, 2, 3]'
 );
 
 test(
     function(){return \LFF7\from_array([])->to_array() === [];},
+
     '\LFF7\from_array([])->to_array() === []'
 );
 
 test(
     function(){return \LFF7\naturals()->take(3)->to_array() === [0, 1, 2];},
-    'return \LFF7\naturals()->take(3)->to_array() === [0, 1, 2]'
+
+    '\LFF7\naturals()->take(3)->to_array() === [0, 1, 2]'
 );
 
+test(
+    function(){return \LFF7\from_range(1, 4)->to_array() === [1, 2, 3, 4];},
+    
+    '\LFF7\from_range(1, 4)->to_array() === [1, 2, 3, 4]'
+);
